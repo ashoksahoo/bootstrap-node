@@ -1,14 +1,6 @@
 path = require('path')
 extend = require('extend')
 
-getPageInfo = (req, pageHeader)->
-	getBreadCrumbs = (path) ->	[	{name: 'Home', href: '/Dashboard', path: path}	];
-#	schoolUrl = req.headers.host + (configs.subDomainEnabled ? '': '/schools/' + req.params.id);
-
-	schoolName: req.params.id,
-	breadCrumbs: getBreadCrumbs(req.url),
-	pageHeader: pageHeader
-
 getEnvironemnt = () ->
 	switch process.env.NODE_ENV
 		when 'production' then 'production'
@@ -26,7 +18,6 @@ getConfigs = (environmentConfig)->
 		stylesPath: stylesPath,
 		staticPath: staticPath,
 		modulePath: modulePath,
-		cookieSecret: 'quickpay@1729@secret',
 		rootPath: appRootPath,
 		logger:
 			info: (message) ->
@@ -50,7 +41,6 @@ getConfigs = (environmentConfig)->
 
 			moduleNameArray
 
-		getPageInfo: getPageInfo
 		constructCallback: (req, res, params)->
 			(data, hasError, code)->
 				response = {};

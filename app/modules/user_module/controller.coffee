@@ -1,5 +1,6 @@
 homePage = (req, res) ->
-	res.send('Home Page')
+	#renders template 'homePage'
+	res.render('homePage')
 exports.homePage = homePage
 
 loginPage = (req, res)->

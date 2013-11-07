@@ -43,7 +43,6 @@ module.exports =  (app, config) ->
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(express.session({
-		secret: 'Quick Pay is cool',
 		store: new mongoStore({
 			url: config.db,
 			collection : 'sessions'
