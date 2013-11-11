@@ -1,0 +1,51 @@
+/* Mixins Start */
+/* Mixins End */
+body {
+  background-color: #f9f9f9;
+}
+#wrapper .nav.header {
+  border-bottom: 1px solid #c6c6c6;
+  background-color: #ffffff;
+}
+#wrapper .navbar {
+  margin: 0;
+}
+#wrapper .navbar .logged-in-username .inner {
+  line-height: 44px;
+  outline-color: #c4d88b;
+  color: #c4d88b;
+}
+#wrapper .navbar .logged-in-block {
+  margin-top: 2px;
+  border-width: 0 1px ;
+  border-color: #c6c6c6;
+  border-style: solid;
+  padding: 0 5px;
+}
+#wrapper .logo {
+  line-height: 44px;
+  font-weight: bolder;
+}
+#wrapper .page-content {
+  min-width: 400px;
+  max-width: 80%;
+  margin: 50px auto;
+}
+.panel.panel-theme {
+  border-color: #c6c6c6;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.panel.panel-theme .panel-heading {
+  text-align: center;
+  background-color: #c4d88b;
+  color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}

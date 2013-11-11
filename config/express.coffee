@@ -43,6 +43,7 @@ module.exports =  (app, config) ->
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(express.session({
+		secret:'boostrap-node is awesome'
 		store: new mongoStore({
 			url: config.db,
 			collection : 'sessions'

@@ -6,7 +6,7 @@ module.exports =
 	port: 3010
 	app:
 		name: "Bootstrap Node"
-	notifier :
+	notifier:
 		service: "postmark"
 		APN: false
 		email: false # true
@@ -15,28 +15,27 @@ module.exports =
 		key: "POSTMARK_KEY"
 		parseAppId: "PARSE_APP_ID"
 		parseApiKey: "PARSE_MASTER_KEY"
-	facebook: {
-      		clientID: "APP_ID",
-      		clientSecret: "APP_SECRET",
-     	 	callbackURL: "http://localhost:3000/auth/facebook/callback"
-    	},
-    	twitter: {
-      		clientID: "CONSUMER_KEY",
-      		clientSecret: "CONSUMER_SECRET",
-      		callbackURL: "http://localhost:3000/auth/twitter/callback"
-    	},
-    	github: {
-      		clientID: 'APP_ID',
-      		clientSecret: 'APP_SECRET',
-      		callbackURL: 'http://localhost:3000/auth/github/callback'
-    	},
-    	google: {
-      		clientID: "APP_ID",
-      		clientSecret: "APP_SECRET",
-      		callbackURL: "http://localhost:3000/auth/google/callback"
-    	},
-    	linkedin: {
-      		clientID: "CONSUMER_KEY",
-      		clientSecret: "CONSUMER_SECRET",
-      		callbackURL: "http://localhost:3000/auth/linkedin/callback"
-    	}
+	facebook:
+		clientID: "APP_ID",
+		clientSecret: "APP_SECRET",
+		callbackURL: "http://localhost:3000/auth/facebook/callback"
+	twitter:
+		clientID: "CONSUMER_KEY",
+		clientSecret: "CONSUMER_SECRET",
+		callbackURL: "http://localhost:3000/auth/twitter/callback"
+
+	github:
+		clientID: 'APP_ID',
+		clientSecret: 'APP_SECRET',
+		callbackURL: 'http://localhost:3000/auth/github/callback'
+
+	google:
+		clientID: "APP_ID",
+		clientSecret: "APP_SECRET",
+		callbackURL: "http://localhost:3000/auth/google/callback"
+
+	linkedin:
+		clientID: "CONSUMER_KEY",
+		clientSecret: "CONSUMER_SECRET",
+		callbackURL: "http://localhost:3000/auth/linkedin/callback"
+
