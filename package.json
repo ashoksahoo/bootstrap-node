@@ -1,47 +1,48 @@
 {
-  "name": "BootstrapNode",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "coffee app.coffee"
-  },
-  "dependencies": {
-    "express": "3.4.0",
-    "jade": "*",
-    "redis-connect": "*",
-    "less-middleware": "*",
-	"connect-mongo": "*",
-	"extend": "*",
-	"underscore": "*",
-	"mongoose": "*",
-	"passport": "*",
-	"passport-facebook": "*",
-	"passport-github": "*",
-	"passport-google": "*",
-	"passport-google-oauth": "*",
-	"passport-linkedin": "*",
-	"passport-local": "*",
-	"passport-twitter": "*",
-  },
-  "description": "Cumulation of Service Payments",
-  "main": "app.coffee",
-  "devDependencies": {},
-  "author": "Prakash Kumar",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/prakash122/bootstrap-node.git"
-  },
-  "keywords": [
-    "NodeJS",
-    "MongooseJS",
-    "ExpressJS",
-    "LESS",
-    "Jade",
-    "CoffeeScript",
-    "Bootstrap"
-  ],
-  "bugs": {
-    "url": "https://github.com/prakash122/bootstrap-node/issues"
-  }
+    "name": "BootstrapNode",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "coffee app.coffee"
+    },
+    "dependencies": {
+        "express": "3.4.0",
+        "jade": "*",
+        "redis-connect": "*",
+        "less-middleware": "*",
+        "connect-mongo": "*",
+        "extend": "*",
+        "underscore": "*",
+        "mongoose": "*",
+        "passport": "*",
+        "passport-facebook": "*",
+        "passport-github": "*",
+        "passport-google": "*",
+        "passport-google-oauth": "*",
+        "passport-linkedin": "*",
+        "passport-local": "*",
+        "passport-twitter": "*",
+        "nodemailer": "*"
+    },
+    "description": "Bootstrap your node project with this beautiful and scalable architecture",
+    "main": "app.coffee",
+    "devDependencies": {},
+    "author": "Prakash Kumar",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/prakash122/bootstrap-node.git"
+    },
+    "keywords": [
+        "NodeJS",
+        "MongooseJS",
+        "ExpressJS",
+        "LESS",
+        "Jade",
+        "CoffeeScript",
+        "Bootstrap"
+    ],
+    "bugs": {
+        "url": "https://github.com/prakash122/bootstrap-node/issues"
+    }
 }

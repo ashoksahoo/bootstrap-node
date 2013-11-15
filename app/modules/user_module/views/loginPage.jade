@@ -1,0 +1,22 @@
+extends ../../../views/layout
+
+block content
+	.row.login-page.auth-page.qp-page
+		.social-logins.col-lg-offset-1.col-lg-5.col-xs-12.col-md-5.col-md-offset-1
+			.social-login.twitter(data-endpoint='twitter')
+				i.fa.fa-twitter
+				span &nbsp;Login with Twitter
+			br
+			.social-login.facebook(data-endpoint='facebook')
+				i.fa.fa-facebook
+				span &nbsp;&nbsp;Login with Facebook
+			br
+			.social-login.google(data-endpoint='google')
+				i.fa.fa-google-plus
+				span &nbsp;Login with Google
+
+		include ./controls/loginForm
+
+block scripts
+	script(src='/js/views/auth.js', type='text/javascript')
+	script(src='/js/ext/growl.js', type='text/javascript')

@@ -13,7 +13,16 @@ html
 		script(src='/js/script.js', type='text/javascript')
 		block scripts
 	body
-		#wrapper
+		-crumbs = [{icon:'fa-lock', name:'Login', href:'/login'}]
+		-currentPos = {icon:'fa-dashboard', name:'Dashboard'}
+		-samplePageInfo = { header:'Home', subHeader:'Sub Heading' , crumbs : crumbs, current: currentPos}
+		-pageInfo = typeof(pageInfo) != 'undefined' ? pageInfo: samplePageInfo
+
+		-hasLeftMenu = typeof(hasMenu) != 'undefined' && !hasMenu ? 'false' : 'true'
+		#wrapper(data-menu=hasLeftMenu)
 			include ./controls/topBar
 			#page-wrapper
+				include ./controls/pageInfo
 				block content
+		//Placeholders for non HTML5 browsers mainly IE 9 and below
+		script(src='/js/ext/placeholder.js', type='text/javascript')

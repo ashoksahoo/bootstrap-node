@@ -1,0 +1,28 @@
+
+form( method="post")#login-form.bn-forms.panel.panel-theme.col-lg-6.col-md-6.col-xs-6
+	.panel-heading
+		h4.text-center.subheading LOGIN
+	.panel-body
+		//label Username
+		h4.text-center.subheading Enter your credentials
+		hr
+		.form-group.input-group
+			span.input-group-addon @
+			input.form-control(type='text', placeholder='Enter email', name='email')
+
+		//label Password
+		.form-group.input-group
+			span.input-group-addon
+				i.fa-lock.fa
+			input.form-control(type='password', placeholder='Password', name='password')
+
+		.form-actions.clear-fix
+			button#btn-login.btn.btn-primary.btn-theme(type='submit')
+				i.icon-lock.icon-white
+				| Sign in
+
+		hr
+		div.btm-links
+			a#forgot-password.small-text Forgot Your Password?
+			a(href='#')#create-account.small-text &nbsp;&nbsp;Create An Account
+

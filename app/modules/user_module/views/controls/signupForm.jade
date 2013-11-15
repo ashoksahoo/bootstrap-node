@@ -1,0 +1,29 @@
+
+form(method="post", action='/signup')#signup-form.form-horizontal.bn-forms.panel.panel-primary.col-lg-4.col-md-5.col-xs-10
+	.panel-heading
+		h4.text-center.subheading SIGN UP
+	.panel-body
+		//label Username
+		h4.text-center.subheading Enter your details
+		.form-group
+			label(for='name-input').sr-only Full Name
+			input#name-input.form-control(name='name', type='name', placeholder='Your Full Name')
+		.form-group
+			label(for='email-input').sr-only Email address
+			input#email-input.form-control(type='email', placeholder='Your Email ID', name='email')
+		.form-group
+			label(for='mobile-input').sr-only Mobile
+			input#mobile-input.form-control(type='mobile', placeholder='Your 10-digit Mobile Number', maxlength=10, name='mobile')
+		.form-group
+			label(for='password-input').sr-only Password
+			input#password-input.form-control(type='password', placeholder='Choose Password', name='password')
+		.form-group
+			label(for='password-input').sr-only Confirm Password
+			input#password-input-2.form-control(type='password', placeholder='Re-enter Password')
+		.form-actions.clearfix
+			button#btn-reset.btn.btn-default
+				i.icon-lock.icon-white
+				| Reset
+			button#btn-login.btn.btn-primary.btn-theme(type='submit')
+				i.icon-lock.icon-white
+				| Sign up

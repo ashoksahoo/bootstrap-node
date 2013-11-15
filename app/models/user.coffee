@@ -1,20 +1,18 @@
 mongoose = require("mongoose")
 Schema = mongoose.Schema
 crypto = require("crypto")
-_ = require("underscore")
 authTypes = ["github", "twitter", "facebook", "google", "linkedin"]
-roles = ['user', 'premium', 'affiliate']
+roles = require('../../lib/userRoles')
 dataTypes = require('./dataTypes');
 
 STRING = dataTypes.STRING
+NUMBER = dataTypes.NUMBER
 
-###
-User Schema
-###
 UserSchema = new Schema(
 	name: STRING
 	email: STRING
 	username: STRING
+	mobile : NUMBER
 	provider: STRING
 	hashed_password: STRING
 	salt: STRING
@@ -24,7 +22,14 @@ UserSchema = new Schema(
 	twitter: {}
 	google: {}
 	linkedin: {}
+	subscription:{}
 )
+
+UserSchema.virtual("hasFreeAccount").get ->
+	@role == roles.Free || @role == ''
+
+UserSchema.virtual("hasPremiumAccount").get ->
+	@role == roles.Premium
 
 UserSchema.virtual("password").set((password) ->
 	@_password = password
@@ -34,9 +39,6 @@ UserSchema.virtual("password").set((password) ->
 	@_password
 
 
-###
-  UserSchema methods
-###
 UserSchema.methods =
 
 	###
@@ -61,9 +63,29 @@ UserSchema.methods =
 		return ""  unless password
 		encrypred = undefined
 		try
-			crypto.createHmac("sha1", @salt).update(password).digest("hex")
+			encrypred = crypto.createHmac("sha1", @salt).update(password).digest("hex")
 			encrypred
+
 		catch err
-		""
+			""
+	givePremiumAccess: ()->
+		@role = roles.Premium
+
+validatePresenceOf = (value)->
+	value && value.length
+
+
+###
+Pre-save hook
+###
+UserSchema.pre "save", (next) ->
+
+	return next()  unless @isNew
+	if not validatePresenceOf(@role)
+		@role = roles.Free
+	if not validatePresenceOf(@password) and authTypes.indexOf(@provider) is -1
+		next new Error("Invalid password")
+	else
+		next()
 
 mongoose.model("User", UserSchema)

@@ -1,8 +1,18 @@
 @theme-bg :#f9f9f9;
-@theme-color : #c4d88b;
+@theme-color : #0b6f7b;
+
+//@theme-color : #c4d88b;
 @theme-light-color : white;
 @borderColor : darken(@theme-bg, 20%);
 
+
+@social-links-color : darken(#8bbcd8, 20%);
+@light-bg : #f7f7f7;
+@input-border-color : #bbb;
+
+@panel-header-color : lighten(@borderColor, 15%);
+//@panel-header-text-color: darken(@theme-color, 20%);
+@panel-header-text-color: @theme-color;
 
 /* Mixins Start */
 .border-radius(@radius:3px) {
@@ -59,19 +69,92 @@ body{
 		max-width: 80%;
 		margin: 50px auto;
 	}
+	#page-wrapper{
+		max-width: 80%;
+		margin: 0 auto;
+	}
 }
 
-.panel{
-   &.panel-theme{
-	   border-color: @borderColor;
-	   .border-radius(0);
+form.bn-forms,
+.panel.panel-theme{
+	min-height: 20px;
+	padding: 0;
+	border-color: @borderColor;
+	.border-radius(2px);
 
-	   .panel-heading{
-		   text-align: center;
-		   background-color: @theme-color;
-		   color: @theme-light-color;
-		   .border-radius(0);
-	   }
-   }
+	.panel-heading {
+		h4 {
+			text-align: left;
+		}
+		.border-radius(0);
+		background-color: @panel-header-color;
+		border-bottom: 1px solid @borderColor;
+		margin-bottom: 10px ;
+		color: @panel-header-text-color;
+		padding: 5px 10px 5px 20px;
+	}
+	.panel-body{
+		padding: 0 30px 10px 30px;
+	}
+}
+form.bn-forms {
+
+	.input-group{
+		span, input{
+			border-color: @input-border-color;
+		}
+	}
+
+	.form-actions{
+		text-align: right;
+		button{
+			margin-left: 10px;
+		}
+	}
 }
 
+
+.social-logins {
+	margin: 40px 0;
+	.social-login {
+		font-size: 22px;
+		margin: 5px auto;
+		width: 300px;
+		color: white;
+		background-color: @social-links-color;
+		border-color: @theme-color;
+		padding: 10px 20px;
+		cursor: pointer;
+		.border-radius(3px);
+
+		&:hover {
+			text-decoration: none;
+		}
+		span {
+			float: right;
+		}
+	}
+}
+.login-page {
+	#login-form {
+		min-width: 400px;
+	}
+}
+
+
+/* Bootstrap Start*/
+.btn-primary.btn-theme {
+	background-color: @theme-color;
+	border-color: lighten(@theme-color, 10%);
+	&:hover{
+		background-color: lighten(@theme-color, 70%);
+		color: darken(@theme-color, 20%);
+	}
+}
+
+/* Bootstrap End*/
+
+
+ol.breadcrumb{
+	background-color: @panel-header-color;
+}

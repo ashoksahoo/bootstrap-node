@@ -2,7 +2,7 @@ isLoggedInUser = (req, res, next)->
 	if(req.session && req.session.user)
 		next();
 	else
-		res.redirect('/signin')
+		res.redirect('/login')
 
 exports.isLoggedInUser = isLoggedInUser;
 

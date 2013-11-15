@@ -12,8 +12,8 @@ body {
 }
 #wrapper .navbar .logged-in-username .inner {
   line-height: 44px;
-  outline-color: #c4d88b;
-  color: #c4d88b;
+  outline-color: #0b6f7b;
+  color: #0b6f7b;
 }
 #wrapper .navbar .logged-in-block {
   margin-top: 2px;
@@ -31,21 +31,89 @@ body {
   max-width: 80%;
   margin: 50px auto;
 }
-.panel.panel-theme {
-  border-color: #c6c6c6;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
+#wrapper #page-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
 }
+form.bn-forms,
+.panel.panel-theme {
+  min-height: 20px;
+  padding: 0;
+  border-color: #c6c6c6;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+form.bn-forms .panel-heading,
 .panel.panel-theme .panel-heading {
-  text-align: center;
-  background-color: #c4d88b;
-  color: #ffffff;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
+  background-color: #ececec;
+  border-bottom: 1px solid #c6c6c6;
+  margin-bottom: 10px ;
+  color: #0b6f7b;
+  padding: 5px 10px 5px 20px;
+}
+form.bn-forms .panel-heading h4,
+.panel.panel-theme .panel-heading h4 {
+  text-align: left;
+}
+form.bn-forms .panel-body,
+.panel.panel-theme .panel-body {
+  padding: 0 30px 10px 30px;
+}
+form.bn-forms .input-group span,
+form.bn-forms .input-group input {
+  border-color: #bbbbbb;
+}
+form.bn-forms .form-actions {
+  text-align: right;
+}
+form.bn-forms .form-actions button {
+  margin-left: 10px;
+}
+.social-logins {
+  margin: 40px 0;
+}
+.social-logins .social-login {
+  font-size: 22px;
+  margin: 5px auto;
+  width: 300px;
+  color: white;
+  background-color: #4090bd;
+  border-color: #0b6f7b;
+  padding: 10px 20px;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.social-logins .social-login:hover {
+  text-decoration: none;
+}
+.social-logins .social-login span {
+  float: right;
+}
+.login-page #login-form {
+  min-width: 400px;
+}
+/* Bootstrap Start*/
+.btn-primary.btn-theme {
+  background-color: #0b6f7b;
+  border-color: #0f99aa;
+}
+.btn-primary.btn-theme:hover {
+  background-color: #eefcfd;
+  color: #031b1d;
+}
+/* Bootstrap End*/
+ol.breadcrumb {
+  background-color: #ececec;
 }

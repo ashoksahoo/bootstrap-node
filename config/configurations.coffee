@@ -1,12 +1,52 @@
 path = require('path')
 extend = require('extend')
+breadCrumbs = require('./breadCrumbMap')
+userRoles = require('../lib/userRoles')
+MailingService = require('../lib/mailingService').MailingService
+nodemailer = require('nodemailer')
+
+getPageInfo = (req, templateName, pageHeader, subHeader)->
+	pageInfo = {
+		header: pageHeader
+		subHeader: subHeader
+	}
+	if(req.session && req.session.user)
+		pageInfo.userLoggedIn = true
+		pageInfo.isFreeAccount =  userRoles.isFreeAccount(req.session.user.role)
+
+	extend(true, pageInfo, breadCrumbs.getBreadCrumbs(templateName))
 
 getEnvironemnt = () ->
 	switch process.env.NODE_ENV
 		when 'production' then 'production'
 		when 'test' then 'test'
+		else 'development'
+
+constructXhrCallback = (req, res, onSuccess)->
+	return (data, hasError, code)->
+		response =
+			code : 0
+		if hasError
+			response.message = data
+			response.code = code if code
 		else
-			'development'
+			response.data = data
+			if onSuccess
+				onSuccess(req, data, response)
+
+		res.send(response)
+
+configureMailer = (config)->
+	if not config.mailer or not config.mailer.smtpSettings
+		return;
+
+	smtpOptions = config.mailer.smtpSettings;
+
+	mailingService = Object.create(MailingService);
+	mailingService.mailer = nodemailer.createTransport("SMTP", smtpOptions);
+	mailingService.fromMail = config.mailer.from;
+
+	config.mailingService = mailingService
 
 getConfigs = (environmentConfig)->
 	appRootPath = path.join(__dirname, '..');
@@ -18,6 +58,7 @@ getConfigs = (environmentConfig)->
 		stylesPath: stylesPath,
 		staticPath: staticPath,
 		modulePath: modulePath,
+		cookieSecret: 'bootstrap@1729@secret',
 		rootPath: appRootPath,
 		logger:
 			info: (message) ->
@@ -29,7 +70,7 @@ getConfigs = (environmentConfig)->
 			error: (message, code) ->
 				console.log(message)
 				console.log(code)
-
+		constructXhrCallback :constructXhrCallback
 		getViewPaths: () ->
 			fs = require('fs');
 			filesArray = fs.readdirSync(modulePath);
@@ -41,6 +82,7 @@ getConfigs = (environmentConfig)->
 
 			moduleNameArray
 
+		getPageInfo: getPageInfo
 		constructCallback: (req, res, params)->
 			(data, hasError, code)->
 				response = {};
@@ -61,6 +103,10 @@ getConfigs = (environmentConfig)->
 	}
 	extend(true, environmentConfig, config)
 
+
 module.exports = () ->
-	environmentConfig = require('./environments/' + getEnvironemnt())
-	getConfigs environmentConfig;
+	if !configInstance
+		environmentConfig = require('./environments/' + getEnvironemnt())
+		configInstance = getConfigs environmentConfig;
+		configureMailer configInstance
+	configInstance

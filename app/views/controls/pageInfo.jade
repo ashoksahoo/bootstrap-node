@@ -1,0 +1,23 @@
+.row
+	.col-lg-12
+		h1
+			=pageInfo.header
+			small &nbsp;
+				=pageInfo.subHeader
+		ol.breadcrumb
+			each bc in pageInfo.crumbs
+				li
+					a(href=bc.href)
+						i(class='fa '+bc.icon)
+						| &nbsp;
+						=bc.name
+			if pageInfo.current
+				li.active
+					i(class='fa '+pageInfo.current.icon)
+					| &nbsp;
+					=pageInfo.current.name
+	//.alert.alert-success.alert-dismissable
+		button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+		| Welcome to SB Admin by
+		a.alert-link(href='http://startbootstrap.com') &nbsp;Start Bootstrap
+		| ! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.

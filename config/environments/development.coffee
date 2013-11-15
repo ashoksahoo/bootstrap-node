@@ -2,10 +2,11 @@ path = require("path")
 templatePath = path.normalize(__dirname + "/../app/mailer/templates")
 
 module.exports =
-	db: "mongodb://localhost/quickpay-dev"
+	db: "mongodb://localhost/bootstrap-node-dev"
 	port: 3010
 	app:
 		name: "Bootstrap Node"
+		domain: ""
 	notifier:
 		service: "postmark"
 		APN: false
@@ -38,4 +39,15 @@ module.exports =
 		clientID: "CONSUMER_KEY",
 		clientSecret: "CONSUMER_SECRET",
 		callbackURL: "http://localhost:3000/auth/linkedin/callback"
+	mailer :
+		smtpSettings:
+			service: "Gmail"
+		#host : "smtp.google.com"
+		#post : "25"
+		#secureConnection : true
+			auth:
+				user: ''
+				pass: ''
+		from: "Bootstrap<thisisprakash@gmail.com>"
+
 
